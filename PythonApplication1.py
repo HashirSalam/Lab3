@@ -1,4 +1,5 @@
 #GeoLiteCity-Location.csv
+#https://github.com/HashirSalam/Lab3.git
 import csv
 from math import radians, cos, sin, asin, sqrt
 
@@ -22,7 +23,8 @@ def haversine(lon1, lat1, lon2, lat2):
 original = file('GeoLiteCity-Location.csv', 'rU')
 reader = csv.reader(original)
 cities = {}
-
+i = 5
+j = 50
 print "Loading Please Wait .... \n\n\n\n"
 
 for rows in reader:
@@ -45,8 +47,12 @@ name1 = raw_input("Please Enter 1st City Name:")
 print "City Latitude :", cities[name1]["Latitude"]
 print "City Longitude :", cities[name1]["Longitude"]
 
-for c in cities:
-    print "Distance" , haversine(float(cities[name1]["Longitude"]), float(cities[name1]["Latitude"]), 5.0, 51.0)
+for x in range(0, 10):
+    print "Nearby Cities:"
+    print "Distances" , haversine(float(cities[name1]["Longitude"]), float(cities[name1]["Latitude"]), i, j)
+    i = i+5
+    j = j+7
+  
 
 
 
